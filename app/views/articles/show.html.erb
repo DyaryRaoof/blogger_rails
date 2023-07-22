@@ -1,0 +1,12 @@
+<h1>Article</h1>
+<%if notice%>
+  <div class="alert alert-success"><%= notice%></div>
+<%end%>
+<h5>Title</h5>
+<%= @article.title%>
+<h5>Description</h5>
+<%= @article.description%>
+</br>
+<%= link_to "Back", articles_path, class: "btn btn-secondary"%>
+<%= link_to "Edit", edit_article_path(@article), class: "btn btn-warning"%>
+<%= link_to "Delete", article_path(@article), method: :deltete, data:{turbo_method: :delete, turbo_confirm: "Do you really want to delete this article?"}, class: "btn btn-danger"%>

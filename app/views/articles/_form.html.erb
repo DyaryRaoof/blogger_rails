@@ -1,0 +1,15 @@
+<div class="m-3">
+    <%= form_with model: @article do |form| %>
+        <%if @article.errors.any?%>
+            <%@article.errors.full_messages.each do |m|%>
+                <div class="alert alert-danger"><%= m %></div>
+            <%end%>
+        <%end%>
+
+        <%= form.label :title, class: "form-label" %>
+        <%= form.text_field :title,class: "form-control"  %>
+        <%= form.label :description, class: "form-label"  %>
+        <%= form.text_area :description,class: "form-control" , size: "60x10" %>
+        <%= form.submit class: "btn btn-primary" %>
+    <% end %>
+</div>

@@ -1,0 +1,23 @@
+<h1 class="mx-5">Articles</h1>
+
+<%= link_to "New Article", new_article_path, class: "btn btn-primary ms-5 mb-3"%>
+<table class="table table-primary mx-5">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Descripton</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+             <%@articles.each do |a|%>
+                    <tr>
+                       <td> <%= a.title%></td>
+                       <td><%= a.description%></td>
+                       <td><%=link_to "Show" , a, class: "btn btn-primary"%>
+                        <%=link_to "Edit" , edit_article_path(a), method: :put, class: "btn btn-warning"%>
+                        <%=link_to "Delete", a , method: :delete ,  data: {turbo_method: :delete, turbo_confirm: "Do you reallly want to delete this article"}, class: "btn btn-danger"%></td>
+                    </tr>
+            <% end %>
+    </tbody>
+</table>
