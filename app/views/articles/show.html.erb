@@ -2,7 +2,7 @@
 
 <div class="card article-card">
   <div class="card-header">
-    BY Dyary Raoof
+    BY <%= @article.user.username%>
   </div>
   <div class="card-body p-5">
     <h3 class="card-title text-success text-center"><%= @article.title%></h3>
