@@ -1,0 +1,14 @@
+<div class="card article-card text-center">
+  <div class="card-header">
+     <%= user.username%>
+  </div>
+  <div class="card-body p-5">
+    <%=gravitar_for(user, size: 200)%>
+    <p class="card-text"><%= user.articles.count%> Articles</p>
+    <%=link_to "View Profile" , user , class: "btn btn-outline-success"%>
+    <%=link_to "Edit Profile" , edit_user_path(user), method: :put, class: "btn btn-outline-info"%>
+  </div>
+  <div class="card-footer text-body-secondary">
+    Joined <%= extract_days_from_date(user.created_at)  %> Days ago
+  </div>
+</div>
