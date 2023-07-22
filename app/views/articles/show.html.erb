@@ -1,12 +1,19 @@
 <h1>Article</h1>
-<%if notice%>
-  <div class="alert alert-success"><%= notice%></div>
-<%end%>
-<h5>Title</h5>
-<%= @article.title%>
-<h5>Description</h5>
-<%= @article.description%>
-</br>
-<%= link_to "Back", articles_path, class: "btn btn-secondary"%>
-<%= link_to "Edit", edit_article_path(@article), class: "btn btn-warning"%>
-<%= link_to "Delete", article_path(@article), method: :deltete, data:{turbo_method: :delete, turbo_confirm: "Do you really want to delete this article?"}, class: "btn btn-danger"%>
+
+<div class="card article-card">
+  <div class="card-header">
+    BY Dyary Raoof
+  </div>
+  <div class="card-body p-5">
+    <h3 class="card-title text-success text-center"><%= @article.title%></h3>
+    <p class="card-text text-start"><%= simple_format(@article.description)%></p>
+    <div class="text-center">
+        <%= link_to "Back", articles_path, class: "btn btn-secondary"%>
+        <%= link_to "Edit", edit_article_path(@article), class: "btn btn-info"%>
+        <%= link_to "Delete", article_path(@article), method: :deltete, data:{turbo_method: :delete, turbo_confirm: "Do you really want to delete this article?"}, class: "btn btn-danger"%>
+    </div>
+  </div>
+  <div class="card-footer text-body-secondary">
+    created <%= extract_hours_from_date(@article.created_at)  %> Hours ago  , edited <%= extract_hours_from_date(@article.updated_at) %> hours ago
+  </div>
+</div>

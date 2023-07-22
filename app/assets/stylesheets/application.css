@@ -13,3 +13,46 @@
  *= require_tree .
  *= require_self
  */
+
+.nav-link,
+.navbar-brand {
+    color: white !important;
+}
+
+.navbar-brand {
+    font-family: 'Lobster';
+    font-size: 50px !important;
+}
+
+.hero-area {
+    height: 70vh;
+    background-image: url("blogger-hero-image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sticky-bottom {
+    height: 10vh;
+}
+
+.article-card {
+    margin: 100px 400px 100px 400px;
+}
+
+.article-card-body {
+    padding: 50px 0 50px 0;
+}
+
+.page-container {
+    position: absolute/*relative and fixed elements also works*/
+    ;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer {
+    position: sticky;
+    top: 100vh;
+}

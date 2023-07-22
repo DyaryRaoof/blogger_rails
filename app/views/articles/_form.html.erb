@@ -1,15 +1,32 @@
-<div class="m-3">
+<div class="row justify-content-center">
+    <div class="col-8 p-3 bg-info rounded-3 text-white">
+        <div class="m-3">
     <%= form_with model: @article do |form| %>
         <%if @article.errors.any?%>
             <%@article.errors.full_messages.each do |m|%>
                 <div class="alert alert-danger"><%= m %></div>
             <%end%>
         <%end%>
-
-        <%= form.label :title, class: "form-label" %>
-        <%= form.text_field :title,class: "form-control"  %>
-        <%= form.label :description, class: "form-label"  %>
-        <%= form.text_area :description,class: "form-control" , size: "60x10" %>
-        <%= form.submit class: "btn btn-primary" %>
+        <div class="row">
+            <div class="col-2">
+                 <%= form.label :title, class: "form-label" %>
+            </div>
+            <div class="col-10">
+                <%= form.text_field :title,class: "form-control shadow-lg", placeholder: "Title of article"  %>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-2">
+                <%= form.label :description, class: "form-label"  %>
+            </div>
+            <div class="col-10">
+                <%= form.text_area :description,class: "form-control shadow-lg" , size: "60x10", placeholder: "Description"%>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+           <%= form.submit class: " btn btn-outline-light btn-large btn-lg" %>
+        </div>
     <% end %>
+</div>
+    </div>
 </div>
