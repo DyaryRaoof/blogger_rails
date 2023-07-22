@@ -2,11 +2,8 @@
     <div class="col-8 p-3 bg-info rounded-3 text-white">
         <div class="m-3">
     <%= form_with model: @article do |form| %>
-        <%if @article.errors.any?%>
-            <%@article.errors.full_messages.each do |m|%>
-                <div class="alert alert-danger"><%= m %></div>
-            <%end%>
-        <%end%>
+              <%= render "shared/errors", obj: @article%>
+
         <div class="row">
             <div class="col-2">
                  <%= form.label :title, class: "form-label" %>

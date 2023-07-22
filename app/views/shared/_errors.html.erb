@@ -1,0 +1,5 @@
+ <%if obj.errors.any?%>
+            <%obj.errors.full_messages.each do |m|%>
+                <div class="alert alert-danger"><%= m %></div>
+            <%end%>
+<%end%>
