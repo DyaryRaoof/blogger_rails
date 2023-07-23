@@ -18,8 +18,12 @@
    <div class="page-container">
      <%= render "shared/navbar"%>
       <% flash.each do |name, msg|%>
-        <div div class="alert alert-success m-2"><%= msg%></div>
-      <%end%>
+        <%if name == "notice" %>
+          <div div class="alert alert-success alert-dismissable show fade m-2"><%= msg%></div>
+        <%else%>
+          <div div class="alert alert-danger alert-dismissable show fade  m-2"><%= msg%></div>
+        <% end %>
+      <% end %>
     <%= yield %>
     <%= render "shared/footer"%>
    </div>

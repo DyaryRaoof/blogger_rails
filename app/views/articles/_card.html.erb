@@ -6,7 +6,7 @@
     <h3 class="card-title text-success"><%= article.title%></h3>
     <p class="card-text"><%= article.description%></p>
     <%=link_to "Show" , article, class: "btn btn-outline-primary"%>
-    <% if logged_in? && article.user == current_user %>
+    <% if logged_in? && (article.user == current_user || current_user.admin?) %>
       <%=link_to "Edit" , edit_article_path(article), method: :put, class: "btn btn-outline-info"%>
       <%=link_to "Delete", article , method: :delete ,  data: {turbo_method: :delete, turbo_confirm: "Do you reallly want to delete this article"}, class: "btn btn-outline-danger"%>
     <%end%>

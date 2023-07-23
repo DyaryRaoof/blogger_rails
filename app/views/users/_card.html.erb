@@ -9,6 +9,11 @@
     <% if logged_in? &&  user == current_user %>
       <%=link_to "Edit Profile" , edit_user_path(user), method: :put, class: "btn btn-outline-info"%>
     <%end%>
+      <%if logged_in? && current_user.admin?%>
+     <%= link_to "Delete This Acount",user_path(user.id), merthod: :delete, 
+            data: {turbo_method: :delete, turbo_confirm: "Are you Sure you want your account to be completely deleted including related articles? "},
+             class:"btn btn-danger" %>
+      <% end %>
   </div>
   <div class="card-footer text-body-secondary">
     Joined <%= extract_days_from_date(user.created_at)  %> Days ago

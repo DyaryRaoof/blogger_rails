@@ -12,7 +12,7 @@
     <p class="card-text text-start"><%= simple_format(@article.description)%></p>
     <div class="text-center">
         <%= link_to "Back", articles_path, class: "btn btn-secondary"%>
-           <% if logged_in? && @article.user == current_user %>
+           <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
             <%= link_to "Edit", edit_article_path(@article), class: "btn btn-info"%>
             <%= link_to "Delete", article_path(@article), method: :deltete, data:{turbo_method: :delete, turbo_confirm: "Do you really want to delete this article?"}, class: "btn btn-danger"%>
           <%end%>

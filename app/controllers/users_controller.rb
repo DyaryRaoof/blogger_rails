@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params) 
         if @user.save 
-            sessions[:user_id] = @user.id
+            session[:user_id] = @user.id
             flash[:notice] = "Succesfully signed up"
             redirect_to @user
         else
@@ -41,10 +41,11 @@ class UsersController < ApplicationController
     end
 
     def destroy
+        message = 
         @user.destroy 
-        session[:user_id] = nil
-        flash[:notice] = "User successfully removed from our database"
-        redirect_to signup_path
+        session[:user_id] = nil if !current_user.admin?
+        flash[:alert] = "User successfully removed from our database"
+        redirect_to articles_path
     end
 
     private
@@ -58,7 +59,7 @@ class UsersController < ApplicationController
 
 
     def require_same_user 
-        if current_user != @user
+        if current_user != @user && !current_user.admin?
             flash[:alert] = "You can only edit your own profile"
             redirect_to login_path
         end
