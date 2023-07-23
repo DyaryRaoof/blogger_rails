@@ -1,8 +1,11 @@
-<h1>Article</h1>
+<div class="d-flex justify-content-center">
+  <h1 class="text_center">Article</h1>
+</div>
 
 <div class="card article-card">
-  <div class="card-header">
-    BY <%= @article.user.username%>
+  <div class="card-header d-flex justify-content-center align-items-center">
+    <div class="me-2">BY <%= @article.user.username%></div> 
+    <div><%=gravitar_for(@article.user, size: 50)%></div>
   </div>
   <div class="card-body p-5">
     <h3 class="card-title text-success text-center"><%= @article.title%></h3>

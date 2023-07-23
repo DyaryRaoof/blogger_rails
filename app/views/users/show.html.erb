@@ -1,5 +1,9 @@
 <h1 class="text-center m-2"><%=@user.username %></h1>
 <%=gravitar_for(@user, size: 200)%>
+<div class="d-flex justify-content-center mt-3">
+  <%= link_to "Edit Profile", edit_user_path, class: "btn btn-outline-info"%>
+</div>
+
 <h3 class="text-center m-2">Articles</h3>
 <%@user.articles.each do |a|%>
   <%= render "articles/card", article: a%>

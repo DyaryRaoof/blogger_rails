@@ -1,6 +1,6 @@
 <div class="card article-card text-center">
   <div class="card-header">
-     <%= user.username%>
+     <%= link_to user.username, user%>
   </div>
   <div class="card-body p-5">
     <%=gravitar_for(user, size: 200)%>
