@@ -11,6 +11,7 @@
                 <%= form.text_field :title,class: "form-control shadow-lg", placeholder: "Title of article"  %>
             </div>
         </div>
+        <% form.hidden_field :user, value: User.find(3)%>
         <div class="row mt-3">
             <div class="col-2">
                 <%= form.label :description, class: "form-label"  %>

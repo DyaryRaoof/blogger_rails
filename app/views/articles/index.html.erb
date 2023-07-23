@@ -1,9 +1,16 @@
 
 <%= stylesheet_link_tag "article_index_page" %>
-<h1 class="mx-5">Articles</h1>
+<%= stylesheet_link_tag "pagination" %>
+<div class="d-flex justify-content-center">
+  <div class="d-block">
+    <h1 class="mx-5">Articles</h1>
+    <%= link_to "New Article", new_article_path, class: "btn btn-primary ms-5 mb-3"%>
+  </div>
+</div>
 
-<%= link_to "New Article", new_article_path, class: "btn btn-primary ms-5 mb-3"%>
-
+<%= render "shared/pagination", obj: @articles%>
 <%@articles.each do |a|%>
   <%= render "card", article: a%>
 <% end %>
+<%= render "shared/pagination", obj: @articles%>
+

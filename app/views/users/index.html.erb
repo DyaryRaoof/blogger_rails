@@ -1,4 +1,8 @@
-<h1 class="text-center m-2">Sign Up for an Blogger</h1>
+<h1 class="text-center m-2">Blogger Users</h1>
+
+<%= render "shared/pagination", obj: @users%>
 <%@users.each do |u|%>
   <%= render "card", user: u%>
 <% end %>
+<%= render "shared/pagination", obj: @users%>
+
