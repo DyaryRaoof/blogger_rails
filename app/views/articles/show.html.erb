@@ -8,6 +8,9 @@
     <div><%=gravitar_for(@article.user, size: 50)%></div>
   </div>
   <div class="card-body p-5">
+    <div class="d-flex justify-content-center">
+      <%= render @article.categories %>
+    </div>
     <h3 class="card-title text-success text-center"><%= @article.title%></h3>
     <p class="card-text text-start"><%= simple_format(@article.description)%></p>
     <div class="text-center">

@@ -8,7 +8,9 @@
   </div>
   <div class="card-body p-5">
     <h3 class="card-title text-success"><%= c.name%></h3>
-    <p class="card-text"></p>
+    <p class="card-text">
+      <strong><%= pluralize(c.articles.count, "Categories")%> </strong>
+    </p>
   </div>
   <div class="card-footer text-body-secondary">
     created <%= extract_hours_from_date(c.created_at)  %> Hours ago  , edited <%= extract_hours_from_date(c.updated_at) %> hours ago

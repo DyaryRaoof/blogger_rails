@@ -19,6 +19,14 @@
                 <%= form.text_area :description,class: "form-control shadow-lg" , size: "60x10", placeholder: "Description"%>
             </div>
         </div>
+     <div class="row mt-2">
+            <div class="col-2">
+                 <%= form.label :category, class: "form-label" %>
+            </div>
+            <div class="col-10">
+                <%= form.collection_select :category_ids, Category.all,:id,:name, {prompt: "Pleas Select One or More Categoies(Can be empty)"}, {:multiple => true, class: "form-select shadow rounded"}  %>
+            </div>
+        </div>
         <div class="text-center mt-3">
            <%= form.submit class: " btn btn-outline-light btn-large btn-lg" %>
         </div>

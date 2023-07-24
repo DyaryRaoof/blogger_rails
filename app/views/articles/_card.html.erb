@@ -3,6 +3,9 @@
     BY <%= link_to article.user.username, article.user%>
   </div>
   <div class="card-body p-5">
+    <div class="d-flex justify-content-center">
+      <%= render article.categories %>
+    </div>
     <h3 class="card-title text-success"><%= article.title%></h3>
     <p class="card-text"><%= article.description%></p>
     <%=link_to "Show" , article, class: "btn btn-outline-primary"%>
